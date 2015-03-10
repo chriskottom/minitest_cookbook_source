@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+root_dir = File.expand_path(File.dirname(__FILE__) + '/..')
+$LOAD_PATH.unshift File.join(root_dir, 'lib')
+$LOAD_PATH.unshift File.join(root_dir, 'test')
+
+require 'bundler/setup'
+
+Dir.glob('./test/**/*_test.rb').each { |file| require file}
