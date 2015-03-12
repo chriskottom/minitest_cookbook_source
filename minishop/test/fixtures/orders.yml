@@ -1,0 +1,5 @@
+barebones:
+  name: Floyd Webber
+  address: 123 Main Street
+  email: floyd@example.com
+  pay_type: Credit Card

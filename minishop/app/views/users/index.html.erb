@@ -1,0 +1,30 @@
+<%= render_message %>
+
+<div id="users" class="list">
+  <h1>Users</h1>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Created At</th>
+      <th>Updated At</th>
+      <th></th>
+    </tr>
+    <% @users.each do |user| %>
+      <tr id="user_#{ user.id }" class="user <%= cycle('list_line_odd', 'list_line_even' ) %>" >
+        <td><%= user.name %></td>
+        <td><%= user.created_at.to_formatted_s(:short) %></td>
+        <td><%= user.updated_at.to_formatted_s(:short) %></td>
+        <td class="list_actions">
+          <%= link_to 'Show', user %><br/>
+          <%= link_to 'Edit', edit_user_path(user) %><br/>
+          <%= link_to 'Destroy', user, method: :delete,
+	              confirm: "Are you sure?" %>
+	</td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<br/>
+
+<%= link_to 'New user', new_user_path %>

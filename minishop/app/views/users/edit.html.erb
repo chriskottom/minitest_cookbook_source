@@ -1,0 +1,12 @@
+<div id="user_#{ @user.id }" class="user edit">
+  <h1>Editing User <%= @user.id %></h1>
+
+  <%= render_message %>
+
+  <%= render 'form' %>
+
+  <div class="links">
+    <%= link_to 'Show', @user %> |
+    <%= link_to 'Back', users_path %>
+  </div>
+</div>

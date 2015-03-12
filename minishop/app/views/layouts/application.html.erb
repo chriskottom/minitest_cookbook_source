@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MiniShop</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body id="store">
+    <%= render partial: "layouts/navigation" %>
+
+    <div id="main" class="container">
+      <%= content_for?(:content) ? yield(:content) : yield %>
+    </div>
+  </body>
+</html>

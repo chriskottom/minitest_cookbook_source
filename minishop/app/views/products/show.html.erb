@@ -1,0 +1,33 @@
+<h1>Product <%= @product.id %></h1>
+
+<%= render_message %>
+
+<div id="product_#{ @product.id }" class="product show">
+  <p>
+    <strong>Title:</strong>
+    <span><%= @product.title %></span>
+  </p>
+
+  <p>
+    <strong>Author:</strong>
+    <span><%= @product.author %></span>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <span><%= @product.description %></span>
+  </p>
+
+  <p>
+    <strong>Image url:</strong>
+    <span><%= @product.image_url %></span>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <span><%= number_to_currency @product.price %></span>
+  </p>
+</div>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

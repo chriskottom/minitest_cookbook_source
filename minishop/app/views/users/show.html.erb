@@ -1,0 +1,13 @@
+<h1>User <%= @user.id %></h1>
+
+<%= render_message %>
+
+<div id="user_#{ @user.id }" class="user show">
+  <p>
+    <strong>Name:</strong>
+    <span><%= @user.name %></span>
+  </p>
+</div>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

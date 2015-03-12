@@ -1,0 +1,19 @@
+<h2>Your Cart</h2>
+
+<div class="contents">
+  <% if cart.total_items == 0 -%>
+    So very, very empty...
+  <% else -%>
+    <table>
+      <%= render cart.line_items %>
+      <tr class="total_line" >
+	<td class="total" colspan="2">Total:&nbsp;&nbsp;</td>
+	<td class="total_cell price" ><%= number_to_currency(cart.total_price) %></td>
+      </tr>
+    </table>
+
+    <%= button_to 'Checkout', new_order_path, method: :get %>
+    <%= button_to 'Empty cart', cart, method: :delete,
+                  confirm: 'Are you sure?', remote: true %>
+  <% end -%>
+</div>
