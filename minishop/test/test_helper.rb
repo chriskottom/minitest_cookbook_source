@@ -4,6 +4,14 @@ require 'rails/test_help'
 require 'minitest/rails'
 require 'minitest/pride'
 
+require 'minitest/rails/capybara'
+Capybara.default_wait_time = 1
+
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
+
+# Capybara.javascript_driver = :webkit
+
 require "support/session_helpers"
 require "support/shopping_helpers"
 

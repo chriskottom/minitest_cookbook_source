@@ -1,7 +1,7 @@
 barebones:
   title: Title
   description: Description
-  image_url: cover.jpg
+  image_url: http://placehold.it/300/09f/fff.png
   price: 0.01
 
 rspec:
