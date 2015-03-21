@@ -1,0 +1,6 @@
+source "https://rubygems.org"
+
+gem 'rake'
+gem 'minitest-untz'
+gem 'minitest-emoji'
+gem 'minitest-sound'
