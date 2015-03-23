@@ -12,27 +12,15 @@ feature "Shopping" do
 
     product1 = product_for_entry(entries.first)
     add_to_cart(entries.first, product1)
-    
-    page.must_have_css("#cart .total_line .price",
-                       text: sprintf("$%.2f", product1.price));
+    total_price_must_be(product1.price)
 
     # Add the last item to the cart.
     product2 = product_for_entry(entries.last)
     add_to_cart(entries.last, product2)
-
-    page.must_have_css("#cart .total_line .price",
-                       text: sprintf("$%.2f", product1.price + product2.price));
+    total_price_must_be(product1.price + product2.price)
 
     # Check out.
-    find("#cart").find_button("Checkout").click
-
-    within("form#new_order") do
-      fill_in("Name", with: "Bill Lumbergh")
-      fill_in("Address", with: "123 Shady Tree Lane")
-      fill_in("Email", with: "da_boss@initech.com")
-      select("Purchase Order", from: "Pay type")
-      click_button("Create Order")
-    end
+    complete_order
 
     # See the order confirmed.
     cart_must_be_empty
@@ -65,5 +53,22 @@ feature "Shopping" do
     end
 
     product
+  end
+
+  def total_price_must_be(amount)
+    page.must_have_css("#cart .total_line .price",
+                       text: sprintf("$%.2f", amount));
+  end
+
+  def complete_order
+    find("#cart").find_button("Checkout").click
+
+    within("form#new_order") do
+      fill_in("Name", with: "Bill Lumbergh")
+      fill_in("Address", with: "123 Shady Tree Lane")
+      fill_in("Email", with: "da_boss@initech.com")
+      select("Purchase Order", from: "Pay type")
+      click_button("Create Order")
+    end
   end
 end
