@@ -29,7 +29,7 @@ feature "Shopping" do
 
   def cart_must_be_empty
     within("#cart") do
-      page.must_have_css(".contents", text: "Your cart is empty.");
+      page.must_have_css(".contents", text: "Your cart is empty.")
       page.must_have_css(".total_line .price", text: "$0.00")
     end
   end
@@ -47,9 +47,9 @@ feature "Shopping" do
     end
 
     within("#cart .current_item") do
-      page.must_have_css(".quantity", text: "1×");
-      page.must_have_css(".title", text: product.title);
-      page.must_have_css(".price", text: sprintf("$%.2f", product.price));
+      page.must_have_css(".quantity", text: "1×")
+      page.must_have_css(".title", text: product.title)
+      page.must_have_css(".price", text: sprintf("$%.2f", product.price))
     end
 
     product
@@ -57,7 +57,7 @@ feature "Shopping" do
 
   def total_price_must_be(amount)
     page.must_have_css("#cart .total_line .price",
-                       text: sprintf("$%.2f", amount));
+                       text: sprintf("$%.2f", amount))
   end
 
   def complete_order
