@@ -1,0 +1,9 @@
+website:
+  name: New Corporate Website
+  due_on: 2015-03-24
+  owner: user
+
+accounting:
+  name: Accounting System
+  due_on: 2015-03-24
+  owner: admin
