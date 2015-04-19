@@ -2,7 +2,7 @@ require "test_helper"
 
 class ApplicationHelperTest < ActionView::TestCase
   setup do
-    @text =<<-EOF.strip_heredoc.gsub(/\n/, " ")
+    @text =<<-EOF.squish
       You want to enjoy life, don't you? If you get your job done
       quickly and your job is fun, that's good isn't it?
     EOF
