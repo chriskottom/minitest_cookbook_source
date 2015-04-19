@@ -1,6 +1,6 @@
 module FizzBuzzHelpers
   def iterate_over(iterator, *values)
-    while value = values.shift
+    values.each do |value|
       iterator.next.must_equal value
     end
   end
