@@ -10,15 +10,6 @@ class GreetableTest < Minitest::Test
     end
   end
 
-  def test_personalized_greeting_delivered_using_struct
-    assert_output('Hey, Matz.') do
-      greetable = Struct.new(:name) do
-        include Greetable
-      end.new("Matz")
-      greetable.greet
-    end
-  end
-
   def test_personalized_greeting_delivered_using_object
     assert_output('Hey, Matz.') do
       greetable = Object.new
@@ -28,6 +19,15 @@ class GreetableTest < Minitest::Test
           'Matz'
         end
       end
+      greetable.greet
+    end
+  end
+
+  def test_personalized_greeting_delivered_using_struct
+    assert_output('Hey, Matz.') do
+      greetable = Struct.new(:name) do
+        include Greetable
+      end.new("Matz")
       greetable.greet
     end
   end
