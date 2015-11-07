@@ -8,7 +8,7 @@ describe FizzBuzz do
 
   it "returns the same number for other numbers" do
     [1, 101, 2014].each do |i|
-      fizz_buzz.convert(i).must_equal i.to_s
+      expect(fizz_buzz.convert(i)).must_equal i.to_s
     end
   end
 end
