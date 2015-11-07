@@ -1,0 +1,22 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    minitest (5.8.2)
+    minitest-emoji (2.0.0)
+    minitest-sound (0.0.7)
+      minitest (>= 5.0)
+    minitest-untz (0.5.0)
+      minitest
+    rake (10.4.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  minitest-emoji
+  minitest-sound
+  minitest-untz
+  rake
+
+BUNDLED WITH
+   1.10.6

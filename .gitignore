@@ -22,7 +22,6 @@
 #
 **/.bundle
 **/bin/
-**/Gemfile.lock
 **/vendor/bundle
 
 
