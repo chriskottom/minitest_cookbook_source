@@ -1,0 +1,150 @@
+@import "bootstrap";
+
+body {
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  @extend .alert;
+  @extend .alert-success;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+
+.new, .edit {
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    @extend .col-md-6;
+    @extend .col-md-offset-3;
+    @extend .clearfix;
+
+    .field {
+      @extend .form-group;
+
+      input[type=text], input[type=password], textarea, select {
+	@extend .form-control;
+      }
+    }
+
+    .actions {
+      margin-top: 25px;
+    }
+
+    input[type=submit], input[type=reset], input[type=button], button {
+      @extend .btn-primary;
+    }
+  }
+
+  .links {
+    @extend .col-md-6;
+    @extend .col-md-offset-3;    
+    font-size: 1.4em;
+    margin-top: 2em;
+  }
+}
+
+.list {
+  table {
+    @extend .table;
+
+    border-collapse: collapse;
+  }
+
+  table tr td {
+    padding: 10px;
+    vertical-align: top;
+  }
+
+  .list_image {
+    margin-left: 20px;
+    width:  60px;
+    height: 70px;
+  }
+
+  .list_description {
+    width: 60%;
+
+    dl {
+      margin: 0;
+    }
+
+    dt {
+      color:        #244;
+      font-weight:  bold;
+      font-size:    larger;
+    }
+
+    dd {
+      margin: 0;
+    }
+  }
+
+  .list_actions {
+    font-size:    small;
+    text-align:   right;
+    padding-left: 1em;
+  }
+
+  .list_line_even {
+    background:   #e0f8f8;
+  }
+
+  .list_line_odd {
+    background:  #fde3f4;
+  }
+}

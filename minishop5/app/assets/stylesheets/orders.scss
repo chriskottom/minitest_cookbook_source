@@ -1,0 +1,12 @@
+@import "bootstrap";
+
+#order.new {
+  h1 {
+    margin-bottom: 1em;
+    text-align: center;
+  }
+
+  form {
+    @extend .col-md-offset-3;
+  }
+}

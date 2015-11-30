@@ -1,0 +1,5 @@
+<tr class="line_item<%= line_item == @current_item ? " current_item" : "" %>">
+  <td class="quantity"><%= line_item.quantity %>&times;</td>
+  <td class="title"><%= line_item.title %></td>
+  <td class="price" ><%= number_to_currency(line_item.total_price) %></td>
+</tr>

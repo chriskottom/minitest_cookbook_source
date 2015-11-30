@@ -1,0 +1,13 @@
+<div id="product_#{ @product.id }" class="product edit">
+  <h1>Editing Product <%= @product.id %></h1>
+
+  <%= render_message %>
+
+  <%= render 'form' %>
+
+  <div class="links">
+    <%= link_to 'Show', @product %> |
+    <%= link_to 'Back', products_path %>
+  </div>
+</div>
+

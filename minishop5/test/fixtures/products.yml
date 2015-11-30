@@ -1,0 +1,19 @@
+barebones:
+  title: Title
+  description: Description
+  image_url: http://placehold.it/300/09f/fff.png
+  price: 0.01
+
+rspec:
+  title: "The RSpec Book: Behaviour-Driven Development with RSpec, Cucumber, and Friends"
+  author: David Chelimsky, Dave Astels, Zach Dennis, Aslak Hellesøy, Bryan Helmkamp, Dan North
+  description: Behaviour-Driven Development (BDD) gives you the best of Test Driven Development, Domain Driven Design, and Acceptance Test Driven Planning techniques, so you can create better software with self-documenting, executable tests that bring users and developers together with a common language.
+  image_url: https://imagery.pragprog.com/products/140/achbd_xlargecover.jpg
+  price: 27.00
+
+crafting_rails:
+  title: "Crafting Rails 4 Applications: Expert Practices for Everyday Rails Development"
+  author: José Valim
+  description: Get ready to see Rails as you’ve never seen it before.
+  image_url: https://imagery.pragprog.com/products/353/jvrails2_xlargecover.jpg
+  price: 24.00

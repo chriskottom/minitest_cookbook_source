@@ -1,0 +1,27 @@
+<h1>Order <%= @order.id %></h1>
+
+<%= render_message %>
+
+<div id="order_#{ @order.id }" class="order show">
+  <p>
+    <strong>Name:</strong>
+    <span><%= @order.name %></span>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <span><%= @order.address %></span>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <span><%= @order.email %></span>
+  </p>
+
+  <p>
+    <strong>Payment Type:</strong>
+    <span><%= @order.pay_type %></span>
+  </p>
+</div>
+
+<%= link_to 'Back', orders_path %>

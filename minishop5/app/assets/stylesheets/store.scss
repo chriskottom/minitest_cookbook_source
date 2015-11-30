@@ -1,0 +1,145 @@
+@import "bootstrap";
+
+#store {
+  .navbar {
+    background-color: #823030;
+    border-color: #772c2c;
+
+    .nav .active a {
+      background-color: #621e1e;
+    }
+
+    .logout a {
+      display: inline;
+      font-weight: bold;
+      padding: 0;
+      text-decoration: underline;
+    }
+  }
+
+  #main {
+    padding: 70px 15px 40px 15px;
+
+    .show, .edit, .new {
+      @extend .clearfix;
+      margin-bottom: 20px;
+      margin-top: 30px;
+    }
+
+    .edit, .new {
+      form {
+	background-color: #f9f9f9;
+	border: 1px solid #e0e0e0;
+	padding: 20px;
+      }
+    }
+
+    .show {
+      p {
+	font-size: 16px;
+
+	strong {
+	  @extend .col-md-2;
+	  display: block;
+	}
+
+	span {
+	  @extend .col-md-9;
+	  @extend .col-md-offset-3;
+	  display: block;
+	}
+      }
+    }
+
+    .sidebar {
+      @extend .col-md-4;
+      background-color: #f0f0f0;
+      border: 1px solid #622;
+      border-radius: 7px;
+      padding-bottom: 100px;
+
+      #cart {
+	font-size: smaller;
+
+	form, div {
+          display: inline;
+
+	  input[type=submit] {
+	    @extend .btn-xs;
+	    @extend .btn-danger;
+	  }
+	}
+
+	table {
+	  border-top: 1px dotted #595;
+	  border-bottom: 1px dotted #595;
+	  margin-bottom: 10px;
+	  width: 100%;
+
+	  tr.total_line td {
+	    font-weight: bold;
+	  }
+
+	  td.total, td.price {
+	    text-align: right;
+	  }
+	}
+      }
+    }
+
+    .entries {
+      @extend .col-md-8;
+
+      .entry_list {
+	margin-top: 20px;
+
+	.entry {
+	  border-bottom: 1px dotted #622;
+	  overflow: auto;
+	  min-height: 100px;
+	  padding: 20px 10px;
+
+	  &:first-child {
+	    border-top: 1px dotted #622;
+	  }
+
+	  img {
+	    width: 80px;
+	    margin-right: 5px;
+	    margin-bottom: 5px;
+	    position: absolute;
+	  }
+
+	  h3 {
+	    color: #a44;
+	    font-size: 120%;
+	    font-weight: bold;
+	    margin-left: 100px;
+	    margin-top: 0;
+	    margin-bottom: 2px;
+	  }
+
+	  p, .price_line {
+	    margin-left: 100px;
+	    margin-top: 0.5em;
+
+	    form, div {
+              display: inline;
+
+	      input[type=submit] {
+		@extend .btn-xs;
+		@extend .btn-danger;
+	      }
+	    }
+	  }
+
+	  .price {
+	    color: #44a;
+	    font-weight: bold;
+	    margin-right: 3em;
+	  }
+	}
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+milton:
+  name: milton
+  password_digest: <%= BCrypt::Password.create("secret", cost: 1) %>
+
+lumbergh:
+  name: lumbergh
+  password_digest: <%= BCrypt::Password.create("secret", cost: 1) %>

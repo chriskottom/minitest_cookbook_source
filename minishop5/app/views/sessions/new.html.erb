@@ -1,0 +1,20 @@
+<%= render_message(:alert) %>
+
+<div id="session" class="session new">
+  <%= form_tag do |f| %>
+    <div class="field">
+      <%= label_tag :name, "Name:" %><br>
+      <%= text_field_tag :name %>
+    </div>
+
+    <div class="field">
+      <%= label_tag :password, "Password:" %><br>
+      <%= password_field_tag :password %>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag %>
+    </div>
+  <% end %>
+</div>
+

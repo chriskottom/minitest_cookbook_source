@@ -1,0 +1,311 @@
+GIT
+  remote: git://github.com/blowmage/minitest-rails-capybara.git
+  revision: 390d2d5343660b16d712941c8607986d8c9ceba9
+  branch: rails5
+  specs:
+    minitest-rails-capybara (3.0.0.20141204162155)
+      capybara (~> 2.0)
+      minitest-capybara (~> 0.7.0)
+      minitest-metadata (~> 0.5.0)
+      minitest-rails (~> 3.0)
+
+GIT
+  remote: git://github.com/blowmage/minitest-rails.git
+  revision: acea177b38d78d723a1ff236b8b013410c3ca3be
+  branch: rails5
+  specs:
+    minitest-rails (3.0.0.20141204144115)
+      minitest (~> 5.4)
+      railties (~> 5.0.0.alpha)
+
+GIT
+  remote: git://github.com/jonatack/will_paginate.git
+  revision: e8537b75f822d994701abcb0598b74d4fd24375b
+  specs:
+    will_paginate (3.0.4)
+
+GIT
+  remote: git://github.com/rack/rack.git
+  revision: c393176b0edf3e5d06cabbb6eb9d9c7a07b2afa7
+  specs:
+    rack (2.0.0.alpha)
+      json
+
+GIT
+  remote: git://github.com/rails/arel.git
+  revision: 3c429c5d86e9e2201c2a35d934ca6a8911c18e69
+  specs:
+    arel (7.0.0.alpha)
+
+GIT
+  remote: git://github.com/rails/coffee-rails.git
+  revision: c05fb725613d96ce969c30a11e7b613e90f9e5e8
+  specs:
+    coffee-rails (4.1.0)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.0)
+
+GIT
+  remote: git://github.com/rails/rails.git
+  revision: 404597b1a1e633e2dd835d7a52b07a9294a2a9fd
+  specs:
+    actionmailer (5.0.0.alpha)
+      actionpack (= 5.0.0.alpha)
+      actionview (= 5.0.0.alpha)
+      activejob (= 5.0.0.alpha)
+      mail (~> 2.5, >= 2.5.4)
+      rails-dom-testing (~> 1.0, >= 1.0.5)
+    actionpack (5.0.0.alpha)
+      actionview (= 5.0.0.alpha)
+      activesupport (= 5.0.0.alpha)
+      rack (~> 2.x)
+      rack-test (~> 0.6.3)
+      rails-dom-testing (~> 1.0, >= 1.0.5)
+      rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    actionview (5.0.0.alpha)
+      activesupport (= 5.0.0.alpha)
+      builder (~> 3.1)
+      erubis (~> 2.7.0)
+      rails-dom-testing (~> 1.0, >= 1.0.5)
+      rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    activejob (5.0.0.alpha)
+      activesupport (= 5.0.0.alpha)
+      globalid (>= 0.3.0)
+    activemodel (5.0.0.alpha)
+      activesupport (= 5.0.0.alpha)
+      builder (~> 3.1)
+    activerecord (5.0.0.alpha)
+      activemodel (= 5.0.0.alpha)
+      activesupport (= 5.0.0.alpha)
+      arel (= 7.0.0.alpha)
+    activesupport (5.0.0.alpha)
+      concurrent-ruby (~> 1.0)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      method_source
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    rails (5.0.0.alpha)
+      actionmailer (= 5.0.0.alpha)
+      actionpack (= 5.0.0.alpha)
+      actionview (= 5.0.0.alpha)
+      activejob (= 5.0.0.alpha)
+      activemodel (= 5.0.0.alpha)
+      activerecord (= 5.0.0.alpha)
+      activesupport (= 5.0.0.alpha)
+      bundler (>= 1.3.0, < 2.0)
+      railties (= 5.0.0.alpha)
+      sprockets-rails (>= 2.0.0)
+    railties (5.0.0.alpha)
+      actionpack (= 5.0.0.alpha)
+      activesupport (= 5.0.0.alpha)
+      method_source
+      rake (>= 0.8.7)
+      thor (>= 0.18.1, < 2.0)
+
+GIT
+  remote: git://github.com/rails/sass-rails.git
+  revision: 6e4eee736bcbfa5b2962467673c7a51abf434c67
+  specs:
+    sass-rails (6.0.0)
+      railties (>= 4.0.0, < 5.0)
+      sass (~> 3.4)
+      sprockets (>= 4.0)
+      sprockets-rails (< 4.0)
+
+GIT
+  remote: git://github.com/rails/sprockets-rails.git
+  revision: 06d84e952490d7d391592124f6e3b79f9c596674
+  specs:
+    sprockets-rails (3.0.0.beta3)
+      actionpack (>= 4.0)
+      activesupport (>= 4.0)
+      sprockets (>= 3.0.0)
+
+GIT
+  remote: git://github.com/rails/sprockets.git
+  revision: 98d0ccc42949815d959cf95fbffd52a3df650358
+  specs:
+    sprockets (4.0.0)
+      rack (>= 1, < 3)
+
+GIT
+  remote: git://github.com/rails/web-console.git
+  revision: e7dcc5f7a773e204e954372a6b62b482856c99f8
+  specs:
+    web-console (3.0.0)
+      activemodel (>= 4.0)
+      debug_inspector
+      railties (>= 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    autoprefixer-rails (6.1.1)
+      execjs
+      json
+    bcrypt (3.1.10)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
+    builder (3.2.2)
+    byebug (8.2.1)
+    capybara (2.5.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    capybara-webkit (1.7.1)
+      capybara (>= 2.3.0, < 2.6.0)
+      json
+    cliver (0.3.2)
+    coderay (1.1.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.10.0)
+    concurrent-ruby (1.0.0)
+    daemons (1.2.3)
+    debug_inspector (0.0.2)
+    erubis (2.7.0)
+    eventmachine (1.0.8)
+    execjs (2.6.0)
+    globalid (0.3.6)
+      activesupport (>= 4.1.0)
+    haml (4.0.7)
+      tilt
+    i18n (0.7.0)
+    interception (0.5)
+    jbuilder (2.3.2)
+      activesupport (>= 3.0.0, < 5)
+      multi_json (~> 1.2)
+    jquery-rails (4.0.5)
+      rails-dom-testing (~> 1.0)
+      railties (>= 4.2.0)
+      thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.5)
+      railties (>= 3.2.16)
+    json (1.8.3)
+    loofah (2.0.3)
+      nokogiri (>= 1.5.9)
+    mail (2.6.3)
+      mime-types (>= 1.16, < 3)
+    mailcatcher (0.2.4)
+      eventmachine
+      haml
+      i18n
+      json
+      mail
+      sinatra
+      skinny (>= 0.1.2)
+      sqlite3-ruby
+      thin
+    method_source (0.8.2)
+    mime-types (2.99)
+    mini_portile2 (2.0.0)
+    minitest (5.8.3)
+    minitest-capybara (0.7.2)
+      capybara (~> 2.2)
+      minitest (~> 5.0)
+      rake
+    minitest-metadata (0.5.3)
+      minitest (>= 4.7, < 6.0)
+    multi_json (1.11.2)
+    mysql2 (0.4.2)
+    nokogiri (1.6.7)
+      mini_portile2 (~> 2.0.0.rc2)
+    poltergeist (1.8.1)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      multi_json (~> 1.0)
+      websocket-driver (>= 0.2.0)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-rescue (1.4.2)
+      interception (>= 0.5)
+      pry
+    pry-stack_explorer (0.4.9.2)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rails-deprecated_sanitizer (1.0.3)
+      activesupport (>= 4.2.0.alpha)
+    rails-dom-testing (1.0.7)
+      activesupport (>= 4.2.0.beta, < 5.0)
+      nokogiri (~> 1.6.0)
+      rails-deprecated_sanitizer (>= 1.0.1)
+    rails-html-sanitizer (1.0.2)
+      loofah (~> 2.0)
+    rake (10.4.2)
+    sass (3.4.19)
+    sinatra (1.0)
+      rack (>= 1.0)
+    skinny (0.2.3)
+      eventmachine (~> 1.0.0)
+      thin (~> 1.5.0)
+    slop (3.6.0)
+    spring (1.4.4)
+    sqlite3 (1.3.11)
+    sqlite3-ruby (1.3.3)
+      sqlite3 (>= 1.3.3)
+    thin (1.5.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
+    thor (0.19.1)
+    thread_safe (0.3.5)
+    tilt (2.0.1)
+    turbolinks (2.5.3)
+      coffee-rails
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+    uglifier (2.7.2)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
+    websocket-driver (0.6.3)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.2)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  arel!
+  bcrypt (~> 3.1.7)
+  bootstrap-sass (~> 3.3)
+  byebug
+  capybara-webkit
+  coffee-rails!
+  jbuilder (~> 2.0)
+  jquery-rails
+  jquery-ui-rails
+  mailcatcher
+  minitest-rails!
+  minitest-rails-capybara!
+  mysql2 (>= 0.3.18, < 0.5)
+  poltergeist
+  pry-rescue
+  pry-stack_explorer
+  rack!
+  rails!
+  sass-rails!
+  spring
+  sprockets!
+  sprockets-rails!
+  turbolinks
+  tzinfo-data
+  uglifier (>= 1.3.0)
+  web-console!
+  will_paginate!
+
+BUNDLED WITH
+   1.10.6

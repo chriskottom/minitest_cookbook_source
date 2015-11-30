@@ -1,0 +1,28 @@
+<%= render_message %>
+
+<div id="orders">
+  <h1>Orders</h1>
+  <table>
+    <thead>
+      <tr>
+	<th>Name</th>
+	<th>Address</th>
+	<th>Email</th>
+	<th>Payment Type</th>
+	<th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+	<tr id="order#{ order.id }" class="order <%= cycle('list_line_odd', 'list_line_even' ) %>" >
+          <td><%= order.name %></td>
+          <td><%= order.address %></td>
+          <td><%= order.email %></td>
+          <td><%= order.pay_type %></td>
+        <td class="list_actions">
+          <%= link_to 'Show', order %><br/>
+	</td>
+      </tr>
+    <% end %>
+  </table>
+</div>

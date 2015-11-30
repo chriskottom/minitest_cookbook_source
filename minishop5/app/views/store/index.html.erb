@@ -1,0 +1,22 @@
+<h1>Welcome to the MiniShop</h1>
+
+<%= render_message %>
+
+<div class="entry_list">
+  <% @products.each do |product| %>
+    <div id="entry_<%= product.id %>" class="entry">
+      <%= image_tag(product.image_url) %>
+
+      <h3><%= product.title %></h3>
+
+      <p><%=sanitize product.description %></p>
+
+      <div class="price_line" >
+	<span class="price" ><%= number_to_currency(product.price) %></span>
+	<%= button_to 'Add to Cart',
+	              line_items_path(line_item: { product_id: product }),
+	              remote: true, class: "add_to_cart" %>
+      </div>
+    </div>
+  <% end %>
+</div>
