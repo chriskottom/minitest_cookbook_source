@@ -30,7 +30,7 @@ class ProductTest < ActiveSupport::TestCase
     rspec.update(updated_at: 1.year.ago)
 
     results = Product.all
-    results.index(rspec).must_be :>, results.index(rails)
+    expect(results.find_index(rspec)).must_be :>, results.find_index(rails)
   end
 
   test "can delete record if not associated with LineItems" do

@@ -15,6 +15,7 @@ class CartTest < ActiveSupport::TestCase
     assert_equal 0, cart.line_items.count
     product = products(:rspec)
     line_item = add_product_to_cart(cart, product)
+
     assert_equal product.id, line_item.product.id
     assert_equal 1, line_item.quantity
   end
@@ -23,6 +24,7 @@ class CartTest < ActiveSupport::TestCase
     product = products(:rspec)
     add_product_to_cart(cart, product, save: true)
     line_item = add_product_to_cart(cart, product)
+
     assert_equal product.id, line_item.product.id
     assert_equal 2, line_item.quantity    
   end
@@ -49,7 +51,6 @@ class CartTest < ActiveSupport::TestCase
     add_product_to_cart(cart, products(:crafting_rails), save: true)
     expected = products(:rspec).price + products(:crafting_rails).price
     assert_equal expected, cart.total_price
-
 
     line_item = add_product_to_cart(cart, products(:rspec), save: true)
     expected = (2 * products(:rspec).price) + products(:crafting_rails).price

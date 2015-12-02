@@ -1,10 +1,11 @@
 require "test_helper"
 
 describe LineItem do
-  let(:line_item) { LineItem.new(quantity: 1) }
+  let(:product)   { products(:rspec) }
+  let(:line_item) { LineItem.new(quantity: 1, product: product) }
 
   it "must be valid" do
-    line_item.must_be :valid?
+    expect(line_item).must_be :valid?
   end
 
   describe "#total_price" do
