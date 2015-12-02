@@ -17,4 +17,12 @@ class UserTest < ActiveSupport::TestCase
     refute User.authenticate(user.name, "derp"),
            "Authentication with bad credentials worked?"
   end
+
+  test "last user can't be deleted" do
+    User.where.not(id: user.id).destroy_all
+    error = assert_raises(RuntimeError) do
+      user.destroy
+    end
+    assert_equal "Can't delete last user", error.message
+  end
 end
