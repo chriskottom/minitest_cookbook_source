@@ -10,15 +10,13 @@ describe ProductsController do
   describe "GET index" do
     it "responds with :success" do
       get :index
-      assigns(:products).wont_be_empty
       must_respond_with :success
     end
   end
 
   describe "GET show" do
     it "responds with :success" do
-      get :show, id: product.id
-      assigns(:product).must_equal product
+      get :show, params: { id: product.id }
       must_respond_with :success
     end
   end
@@ -26,20 +24,14 @@ describe ProductsController do
   describe "GET new" do
     it "responds with :success" do
       get :new
-      assigns(:product).must_be_instance_of Product
-      assigns(:product).must_be :new_record?
       must_respond_with :success
-      must_render_template partial: "_form"
     end
   end
 
   describe "GET edit" do
     it "responds with :success" do
-      get :edit, id: product.id
-      assigns(:product).must_be_instance_of Product
-      assigns(:product).must_be :persisted?
+      get :edit, params: { id: product.id }
       must_respond_with :success
-      must_render_template partial: "_form"
     end
   end
 
@@ -49,13 +41,13 @@ describe ProductsController do
                        image_url: "cover.gif", price: 0.99} }
 
       it "saves the record and redirects to the detail page" do
-        lambda {
-          post :create, product: options
-        }.must_change "Product.count"
-        assigns(:product).must_be_instance_of Product
-        assigns(:product).must_be :persisted?
-        must_redirect_to assigns(:product)
-        flash[:notice].must_equal "Product was successfully created."
+        assert_difference "Product.count" do
+          post :create, params: { product: options }
+        end
+
+        product = Product.order(created_at: :desc).first
+        must_redirect_to product
+        expect(flash[:notice]).must_equal "Product was successfully created."
       end
     end
 
@@ -63,13 +55,10 @@ describe ProductsController do
       let(:options) { {title: "RSpec Rules"} }
 
       it "does not save the record and re-displays the :new template" do
-        lambda {
-          post :create, product: options
-        }.wont_change "Product.count"
-        assigns(:product).must_be_instance_of Product
-        assigns(:product).must_be :new_record?
+        assert_no_difference "Product.count" do
+          post :create, params: { product: options }
+        end
         must_respond_with :success
-        must_render_template :new
       end
     end
   end
@@ -79,11 +68,11 @@ describe ProductsController do
       let(:options)  { {title: "RSpec and Friends"} }
 
       it "updates the record and redirects to the detail page" do
-        put :update, id: product.id, product: options
-        assigns(:product).id.must_equal product.id
-        assigns(:product).title.wont_equal product.title
-        must_redirect_to assigns(:product)
-        flash[:notice].must_equal "Product was successfully updated."
+        put :update, params: { id: product.id, product: options }
+
+        expect(product.reload.title).must_equal options[:title]
+        must_redirect_to product
+        expect(flash[:notice]).must_equal "Product was successfully updated."
       end
     end
 
@@ -91,19 +80,20 @@ describe ProductsController do
       let(:options)  { {price: 0} }
 
       it "does not update the record and re-displays the :edit template" do
-        put :update, id: product.id, product: options
-        assigns(:product).errors.wont_be_empty
+        put :update, params: { id: product.id, product: options }
+        expect(product.reload.price).wont_equal 0
         must_respond_with :success
-        must_render_template :edit
       end
     end
   end
 
   describe "DELETE destroy" do
     it "destroys the record and redirects to the index" do
-      lambda { delete :destroy, id: product.id }.must_change "Product.count", -1
+      assert_difference "Product.count", -1 do
+        delete :destroy, params: { id: product.id }
+      end
       must_redirect_to products_url
-      flash[:notice].must_equal "Product was successfully destroyed."
+      expect(flash[:notice]).must_equal "Product was successfully destroyed."
     end
   end
 end

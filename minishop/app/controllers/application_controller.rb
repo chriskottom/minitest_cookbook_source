@@ -13,8 +13,6 @@ class ApplicationController < ActionController::Base
     current_user != nil
   end
 
-  private
-
   def current_cart
     Cart.find(session[:cart_id])
   rescue ActiveRecord::RecordNotFound
@@ -22,6 +20,8 @@ class ApplicationController < ActionController::Base
     session[:cart_id] = cart.id
     cart
   end
+
+  private
 
   def authorize
     redirect_to(login_path, alert: "You need to login first.") unless logged_in?

@@ -1,6 +1,8 @@
 require "test_helper"
 
 describe OrdersController do
+  include ShoppingHelpers
+
   before do
     login_as(users(:lumbergh))
   end
@@ -10,15 +12,13 @@ describe OrdersController do
   describe "GET index" do
     it "responds with :success" do
       get :index
-      assigns(:orders).wont_be_empty
       must_respond_with :success
     end
   end
 
   describe "GET show" do
     it "responds with :success" do
-      get :show, id: order.id
-      assigns(:order).must_equal order
+      get :show, params: { id: order.id }
       must_respond_with :success
     end
   end
@@ -27,25 +27,22 @@ describe OrdersController do
     describe "with an empty cart" do
       it "redirects to the store with an error message" do
         get :new
-        assigns(:cart).must_be_instance_of Cart
+        expect(cart).must_be_instance_of Cart
+        expect(cart).must_be_empty
         must_redirect_to root_path
-        flash[:alert].must_equal "Your cart is empty."
+        expect(flash[:alert]).must_equal "Your cart is empty."
       end
     end
 
     describe "with items in the cart" do
       before do
-        cart = carts(:empty)
-        session[:cart_id] = cart.id
-        line_item = cart.add_product(products(:rspec))
-        line_item.save
+        @line_item = add_product_to_cart(products(:rspec), save: true)
       end
 
       it "redirects to the store with a success message" do
         get :new
-        assigns(:cart).must_be_instance_of Cart
-        assigns(:order).must_be_instance_of Order
-        assigns(:order).must_be :new_record?
+        expect(cart).must_be_instance_of Cart
+        expect(cart).wont_be_empty
         must_respond_with :success
       end
     end
@@ -57,25 +54,22 @@ describe OrdersController do
                        pay_type: "Credit Card"} }
 
       it "saves the order and redirects the user to the store with a thank you" do
-        lambda {
-          post :create, order: options
-        }.must_change "Order.count"
-        assigns(:order).must_be_instance_of Order
-        assigns(:order).must_be :persisted?
-        session[:cart_id].must_be_nil
+        assert_difference "Order.count" do
+          post :create, params: { order: options }
+        end
+
+        expect(session[:cart_id]).must_be_nil
         must_redirect_to root_path
-        flash[:notice].must_equal "Thank you for your order."
+        expect(flash[:notice]).must_equal "Thank you for your order."
       end
     end
 
     describe "with invalid parameters" do
       it "doesn't save anything and redirects the user to the order page" do
-        lambda {
-          post :create, order: { name: "Some guy" }
-        }.wont_change "Order.count"
-        assigns(:order).must_be :new_record?
+        assert_no_difference "Order.count" do
+          post :create, params: { order: { name: "Some guy" } }
+        end
         must_respond_with :success
-        must_render_template "new"
       end
     end
   end

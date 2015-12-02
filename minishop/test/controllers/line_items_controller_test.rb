@@ -8,13 +8,12 @@ describe LineItemsController do
       let(:options) { {product_id: product.id} }
 
       it "saves the record and redirects to the detail page" do
-        lambda {
-          post :create, line_item: options
-        }.must_change "LineItem.count"
-        assigns(:cart).wont_be_nil
-        assigns(:line_item).must_be :persisted?
+        assert_difference "LineItem.count" do
+          post :create, params: { line_item: options }
+        end
+
         must_redirect_to root_path
-        flash[:notice].must_equal "Line item was successfully created."
+        expect(flash[:notice]).must_equal "Line item was successfully created."
       end
     end
   end
