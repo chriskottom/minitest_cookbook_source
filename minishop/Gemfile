@@ -36,6 +36,7 @@ group :development do
 end
 
 group :test do
+  gem 'capybara', github: 'jnicklas/capybara'
   gem 'minitest-rails', github: "pwnall/minitest-rails", branch: "rails5"
   gem 'minitest-rails-capybara', github: "blowmage/minitest-rails-capybara", branch: "rails5"
   gem 'capybara-webkit'
