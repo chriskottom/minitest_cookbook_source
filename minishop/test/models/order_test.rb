@@ -13,8 +13,8 @@ class OrderTest < ActiveSupport::TestCase
 
   test "#add_line_items_from_cart transfers all line items to the order" do
     cart = carts(:empty)
-    item1 = add_product_to_cart(cart, products(:rspec), save: true)
-    item2 = add_product_to_cart(cart, products(:crafting_rails), save: true)
+    item1 = add_product_to_cart(products(:rspec), cart: cart, save: true)
+    item2 = add_product_to_cart(products(:crafting_rails), cart: cart, save: true)
 
     order.add_line_items_from_cart(cart)
     cart.reload
