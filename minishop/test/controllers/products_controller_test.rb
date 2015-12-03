@@ -55,9 +55,9 @@ describe ProductsController do
       let(:options) { {title: "RSpec Rules"} }
 
       it "does not save the record and re-displays the :new template" do
-        assert_no_difference "Product.count" do
-          post :create, params: { product: options }
-        end
+        expect(-> {
+                 post :create, params: { product: options }
+               }).wont_change "Product.count"
         must_respond_with :success
       end
     end
