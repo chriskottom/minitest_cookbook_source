@@ -1,4 +1,24 @@
 module ApplicationHelper
+  # Truncates the text to a sentence boundary if one is available within half
+  # the total maximum length. Otherwise truncates to the nearest word boundary.
+  def smart_truncate(text, options = {})
+    length = options[:length]
+    return text if text.length <= length
+
+    result = truncate_sentence(text, options)
+    if result.length <= length/2
+      result = text.truncate(length, separator: /\b/,
+                             omission: "...", escape: false)
+    end
+    result
+  end
+
+  # Truncate to the nearest sentence boundary.
+  def truncate_sentence(text, options = {})
+    sentence_break = text.rindex(/[\.\?\!]/, options[:length])
+    sentence_break ? text[0, sentence_break++1] : ""
+  end
+
   def navbar_item(name, path, active = false)
     content_tag :li, class: (active ? "active" : "inactive") do
       link_to name, path
