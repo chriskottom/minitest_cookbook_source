@@ -47,4 +47,11 @@ module ApplicationHelper
       end
     end
   end
+
+  def render_errors_for(model, model_name = nil)
+    if model.errors.any?
+      model_name ||= model.class.name.humanize.downcase
+      render partial: "shared/errors", locals: { model: model, name: model_name }
+    end
+  end
 end

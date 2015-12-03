@@ -32,4 +32,27 @@ class ApplicationHelperTest < ActionView::TestCase
     expected = '<li class="active"><a href="bar/bat">Foo</a></li>'
     assert_equal expected, navbar_item("Foo", "bar/bat", true)
   end
+
+  test "#render_errors_for prints each error in the model" do
+    product = Product.new
+    refute product.valid?
+    refute_empty product.errors
+
+    render_errors_for(product)
+    errors = product.errors
+    assert_match /#{ errors.count } errors kept us from saving this product/,
+                 rendered
+    errors.full_messages.each do |msg|
+      assert_match /#{ ERB::Util.html_escape(msg) }/, rendered
+    end
+  end
+
+  test "#render_errors_for prints nothing for a valid model" do
+    user = users(:milton)
+    assert user.valid?
+    assert_empty user.errors
+
+    render_errors_for(user)
+    assert_empty rendered
+  end
 end

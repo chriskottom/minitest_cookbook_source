@@ -1,0 +1,12 @@
+<div id="error_explanation">
+  <h2>
+    <% error_count = model.errors.count %>
+    <%= pluralize(error_count, "error") %> kept us from saving this <%= name %>:
+  </h2>
+
+  <ul>
+    <% model.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
