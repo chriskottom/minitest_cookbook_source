@@ -10,19 +10,19 @@ GIT
       minitest-rails (~> 3.0)
 
 GIT
-  remote: git://github.com/blowmage/minitest-rails.git
-  revision: acea177b38d78d723a1ff236b8b013410c3ca3be
-  branch: rails5
-  specs:
-    minitest-rails (3.0.0.20141204144115)
-      minitest (~> 5.4)
-      railties (~> 5.0.0.alpha)
-
-GIT
   remote: git://github.com/jonatack/will_paginate.git
   revision: e8537b75f822d994701abcb0598b74d4fd24375b
   specs:
     will_paginate (3.0.4)
+
+GIT
+  remote: git://github.com/pwnall/minitest-rails.git
+  revision: 82ddb7429ce154fc7d5a01484fa6d5a727faf89a
+  branch: rails5
+  specs:
+    minitest-rails (3.0.0.20141204144115)
+      minitest (~> 5.7)
+      railties (~> 5.0.0.alpha)
 
 GIT
   remote: git://github.com/rack/rack.git
