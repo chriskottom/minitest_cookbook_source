@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require "test_helper"
 
-feature "Shopping" do
+feature "Shopping v4" do
   scenario "add several items to the cart and check out", js: true do
     # Go to the store's homepage
     visit root_path
@@ -27,6 +27,7 @@ feature "Shopping" do
     page.must_have_css("#notice", text: "Thank you for your order.")
   end
 
+  # Check that the cart is empty and has a zero value.
   def cart_must_be_empty
     within("#cart") do
       page.must_have_css(".contents", text: "Your cart is empty.")
@@ -34,11 +35,14 @@ feature "Shopping" do
     end
   end
 
+  # Given an entry from the store page, return the related product.
   def product_for_entry(entry)
     id = entry[:id].sub(/entry_/, "")
     Product.find(id)
   end
 
+  # Given an entry from the store page, add it to the shopping cart.
+  # Verify that a line item was added to the cart.
   def add_to_cart(entry, product = nil)
     product ||= product_for_entry(entry)
 
@@ -55,11 +59,13 @@ feature "Shopping" do
     product
   end
 
+  # Check the total price of items in the cart against an expected value.
   def total_price_must_be(amount)
     page.must_have_css("#cart .total_line .price",
                        text: sprintf("$%.2f", amount))
   end
 
+  # Fill in the order information and submit it.
   def complete_order
     find("#cart").find_button("Checkout").click
 
