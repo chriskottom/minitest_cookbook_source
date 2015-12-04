@@ -9,7 +9,6 @@ require 'minitest/rails'
 require 'minitest/pride'
 
 require 'minitest/rails/capybara'
-Capybara.default_wait_time = 1
 
 require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
@@ -20,6 +19,18 @@ require "support/shopping_helpers"
 
 class ActiveSupport::TestCase
   include SessionHelpers
-
   fixtures :all
+end
+
+require 'minitest/around'
+require 'database_cleaner'
+DatabaseCleaner.strategy = :deletion
+class Capybara::Rails::TestCase
+  around do |test|
+    if metadata[:js]
+      DatabaseCleaner.cleaning(&test)
+    else
+      test.call
+    end
+  end
 end

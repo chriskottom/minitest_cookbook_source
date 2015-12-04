@@ -175,6 +175,7 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
     daemons (1.2.3)
+    database_cleaner (1.5.1)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     eventmachine (1.0.8)
@@ -213,6 +214,8 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
+    minitest-around (0.3.2)
+      minitest (~> 5.0)
     minitest-capybara (0.7.2)
       capybara (~> 2.2)
       minitest (~> 5.0)
@@ -291,10 +294,12 @@ DEPENDENCIES
   capybara!
   capybara-webkit
   coffee-rails!
+  database_cleaner
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
   mailcatcher
+  minitest-around
   minitest-rails!
   minitest-rails-capybara!
   mysql2 (>= 0.3.18, < 0.5)
