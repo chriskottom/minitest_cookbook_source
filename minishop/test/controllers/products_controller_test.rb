@@ -88,6 +88,10 @@ describe ProductsController do
   end
 
   describe "DELETE destroy" do
+    before do
+      product.line_items.destroy_all
+    end
+
     it "destroys the record and redirects to the index" do
       assert_difference "Product.count", -1 do
         delete :destroy, params: { id: product.id }
