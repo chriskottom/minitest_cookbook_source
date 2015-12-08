@@ -45,7 +45,7 @@ describe UsersController do
           post :create, params: { user: options }
         end
 
-        user = User.order(created_at: :desc).first
+        user = User.find_by name: "pgibbons"    # :name must be unique
         must_redirect_to user
         expect(flash[:notice]).must_equal "User #{ user.name } was successfully created."
       end

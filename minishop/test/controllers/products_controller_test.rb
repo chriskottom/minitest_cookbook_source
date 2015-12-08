@@ -45,7 +45,7 @@ describe ProductsController do
           post :create, params: { product: options }
         end
 
-        product = Product.order(created_at: :desc).first
+        product = Product.find_by title: "Test"   # :title must be unique
         must_redirect_to product
         expect(flash[:notice]).must_equal "Product was successfully created."
       end
