@@ -4,8 +4,8 @@ feature "Shopping v1" do
   scenario "add several items to the cart and check out" do
     # Go to the store's homepage
     visit root_path
-    page.must_have_content("Your cart is empty.")
-    page.must_have_content("Total: $0.00")
+    expect(page).must_have_content("Your cart is empty.")
+    expect(page).must_have_content("Total: $0.00")
 
     # Add the first item to the cart.
     add_to_cart_buttons = page.all('input[value="Add to Cart"]')
@@ -23,8 +23,8 @@ feature "Shopping v1" do
     click_button("Create Order")
 
     # See the order confirmed.
-    page.must_have_content("Your cart is empty.")
-    page.must_have_content("Total: $0.00")
-    page.must_have_content("Thank you for your order.")
+    expect(page).must_have_content("Your cart is empty.")
+    expect(page).must_have_content("Total: $0.00")
+    expect(page).must_have_content("Thank you for your order.")
   end
 end

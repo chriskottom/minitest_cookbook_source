@@ -24,14 +24,14 @@ feature "Shopping v4" do
 
     # See the order confirmed.
     cart_must_be_empty
-    page.must_have_css("#notice", text: "Thank you for your order.")
+    expect(page).must_have_css("#notice", text: "Thank you for your order.")
   end
 
   # Check that the cart is empty and has a zero value.
   def cart_must_be_empty
     within("#cart") do
-      page.must_have_css(".contents", text: "Your cart is empty.")
-      page.must_have_css(".total_line .price", text: "$0.00")
+      expect(page).must_have_css(".contents", text: "Your cart is empty.")
+      expect(page).must_have_css(".total_line .price", text: "$0.00")
     end
   end
 
@@ -51,9 +51,10 @@ feature "Shopping v4" do
     end
 
     within("#cart .current_item") do
-      page.must_have_css(".quantity", text: "1×")
-      page.must_have_css(".title", text: product.title)
-      page.must_have_css(".price", text: sprintf("$%.2f", product.price))
+      expect(page).must_have_css(".quantity", text: "1×")
+      expect(page).must_have_css(".title", text: product.title)
+      expect(page).must_have_css(".price",
+                                 text: sprintf("$%.2f", product.price))
     end
 
     product
@@ -61,8 +62,8 @@ feature "Shopping v4" do
 
   # Check the total price of items in the cart against an expected value.
   def total_price_must_be(amount)
-    page.must_have_css("#cart .total_line .price",
-                       text: sprintf("$%.2f", amount))
+    expect(page).must_have_css("#cart .total_line .price",
+                               text: sprintf("$%.2f", amount))
   end
 
   # Fill in the order information and submit it.

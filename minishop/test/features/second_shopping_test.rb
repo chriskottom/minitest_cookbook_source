@@ -5,18 +5,18 @@ feature "Shopping v2" do
     # Go to the store's homepage
     visit root_path
     within("#cart") do
-      page.must_have_css(".contents", text: "Your cart is empty.")
-      page.must_have_css(".total_line .price", text: "$0.00")
+      expect(page).must_have_css(".contents", text: "Your cart is empty.")
+      expect(page).must_have_css(".total_line .price", text: "$0.00")
     end
 
     # Add the first item to the cart.
     add_to_cart_buttons = page.all('.entry_list .entry input[value="Add to Cart"]')
     add_to_cart_buttons.first.click
-    page.must_have_css("#cart .line_item", count: 1)
+    expect(page).must_have_css("#cart .line_item", count: 1)
 
     # Add the last item to the cart.
     add_to_cart_buttons.last.click
-    page.must_have_css("#cart .line_item", count: 2)
+    expect(page).must_have_css("#cart .line_item", count: 2)
 
     # Check out.
     find_button("Checkout").click
@@ -30,10 +30,10 @@ feature "Shopping v2" do
 
     # See the order confirmed.
     within("#cart") do
-      page.must_have_css(".contents", text: "Your cart is empty.")
-      page.must_have_css(".total_line .price", text: "$0.00")
+      expect(page).must_have_css(".contents", text: "Your cart is empty.")
+      expect(page).must_have_css(".total_line .price", text: "$0.00")
     end
 
-    page.must_have_css("#notice", text: "Thank you for your order.")
+    expect(page).must_have_css("#notice", text: "Thank you for your order.")
   end
 end

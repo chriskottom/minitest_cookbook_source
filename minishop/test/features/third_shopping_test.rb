@@ -6,8 +6,8 @@ feature "Shopping v3" do
     # Go to the store's homepage.
     visit root_path
     within("#cart") do
-      page.must_have_css(".contents", text: "Your cart is empty.")
-      page.must_have_css(".total_line .price", text: "$0.00")
+      expect(page).must_have_css(".contents", text: "Your cart is empty.")
+      expect(page).must_have_css(".total_line .price", text: "$0.00")
     end
 
     # Add the first item to the cart.
@@ -21,13 +21,14 @@ feature "Shopping v3" do
     end
 
     within("#cart .current_item") do
-      page.must_have_css(".quantity", text: "1×")
-      page.must_have_css(".title", text: product1.title)
-      page.must_have_css(".price", text: sprintf("$%.2f", product1.price))
+      expect(page).must_have_css(".quantity", text: "1×")
+      expect(page).must_have_css(".title", text: product1.title)
+      expect(page).must_have_css(".price",
+                                 text: sprintf("$%.2f", product1.price))
     end
 
-    page.must_have_css("#cart .total_line .price",
-                       text: sprintf("$%.2f", product1.price))
+    expect(page).must_have_css("#cart .total_line .price",
+                               text: sprintf("$%.2f", product1.price))
 
     # Add the last item to the cart.
     within(entry2) do
@@ -35,13 +36,15 @@ feature "Shopping v3" do
     end
 
     within("#cart .current_item") do
-      page.must_have_css(".quantity", text: "1×")
-      page.must_have_css(".title", text: product2.title)
-      page.must_have_css(".price", text: sprintf("$%.2f", product2.price))
+      expect(page).must_have_css(".quantity", text: "1×")
+      expect(page).must_have_css(".title", text: product2.title)
+      expect(page).must_have_css(".price",
+                                 text: sprintf("$%.2f", product2.price))
     end
 
-    page.must_have_css("#cart .total_line .price",
-                       text: sprintf("$%.2f", product1.price + product2.price))
+    expected_total = product1.price + product2.price
+    expect(page).must_have_css("#cart .total_line .price",
+                               text: sprintf("$%.2f", expected_total))
 
     # Check out.
     find("#cart").find_button("Checkout").click
@@ -56,10 +59,10 @@ feature "Shopping v3" do
 
     # See the order confirmed.
     within("#cart") do
-      page.must_have_css(".contents", text: "Your cart is empty.")
-      page.must_have_css(".total_line .price", text: "$0.00")
+      expect(page).must_have_css(".contents", text: "Your cart is empty.")
+      expect(page).must_have_css(".total_line .price", text: "$0.00")
     end
 
-    page.must_have_css("#notice", text: "Thank you for your order.")
+    expect(page).must_have_css("#notice", text: "Thank you for your order.")
   end
 end
