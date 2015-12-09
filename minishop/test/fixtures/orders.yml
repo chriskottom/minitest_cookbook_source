@@ -3,3 +3,10 @@ barebones:
   address: 123 Main Street
   email: floyd@example.com
   pay_type: Credit Card
+
+old:
+  name: Chris Pogreba
+  address: 1532 North Glendale Avenue
+  email: chris@example.com
+  pay_type: Check
+  created_at: 2014-11-11 12:00

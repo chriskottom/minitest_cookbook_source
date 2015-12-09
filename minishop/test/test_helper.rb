@@ -14,6 +14,7 @@ require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
 # Capybara.javascript_driver = :webkit
 
+require "support/logging_helpers"
 require "support/session_helpers"
 require "support/shopping_helpers"
 
