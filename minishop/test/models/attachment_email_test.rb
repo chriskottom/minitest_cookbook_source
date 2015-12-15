@@ -7,7 +7,7 @@ describe AttachmentEmail, :model do
     { to: "foo@bar.com", from: "bat@baz.com",
       subject: "This is a subject...", body: "This is a message..." }
   }
-  let(:filename)    { File.join(Rails.root, "test/fixtures/files/sample.txt") }
+  let(:filename)    { file_fixture("sample.txt") }
   let(:attachments) { [File.new(filename)] }
   let(:subject)     { AttachmentEmail.new(options: options,
                                           attachments: attachments) }
