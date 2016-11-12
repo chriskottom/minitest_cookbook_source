@@ -11,7 +11,7 @@ class MockTest < Minitest::Test
     @mock.expect(:status, :awesome)
     status = @mock.status
     assert_equal :awesome, status
-    @mock.verify
+    assert_mock @mock
   end
 
   # Method expectation with explicit argument (Object)
@@ -20,7 +20,7 @@ class MockTest < Minitest::Test
     @mock.expect(:status_on, :awesome, [date])
     status = @mock.status_on(date)
     assert_equal :awesome, status
-    @mock.verify
+    assert_mock @mock
   end
 
   # Method expectation with Class argument
@@ -29,7 +29,7 @@ class MockTest < Minitest::Test
     @mock.expect(:status_on, :awesome, [Date])
     status = @mock.status_on(date - 1)
     assert_equal :awesome, status
-    @mock.verify
+    assert_mock @mock
   end
 
   # Method expectation with block to validate arguments
@@ -39,6 +39,6 @@ class MockTest < Minitest::Test
     end
     status = @mock.status_on(DateTime.now)
     assert_equal :awesome, status
-    @mock.verify
+    assert_mock @mock
   end
 end
