@@ -1,13 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    minitest (5.8.2)
+    minitest (5.9.1)
     minitest-emoji (2.0.0)
-    minitest-sound (0.0.7)
+    minitest-sound (0.0.8)
       minitest (>= 5.0)
     minitest-untz (0.5.0)
       minitest
-    rake (10.4.2)
+    rake (11.3.0)
 
 PLATFORMS
   ruby
@@ -19,4 +19,4 @@ DEPENDENCIES
   rake
 
 BUNDLED WITH
-   1.10.6
+   1.12.3
