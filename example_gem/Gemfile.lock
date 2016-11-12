@@ -6,8 +6,8 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    minitest (5.8.2)
-    rake (10.4.2)
+    minitest (5.9.1)
+    rake (11.3.0)
 
 PLATFORMS
   ruby
@@ -15,8 +15,8 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.7)
   example_gem!
-  minitest (~> 5.8)
-  rake (~> 10.0)
+  minitest (~> 5.9)
+  rake (~> 11.0)
 
 BUNDLED WITH
-   1.10.6
+   1.12.3
