@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class HomeControllerTest < ActionController::TestCase
+class HomeControllerTest < ActionDispatch::IntegrationTest
 end

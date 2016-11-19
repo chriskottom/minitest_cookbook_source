@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class ProjectsControllerTest < ActionController::TestCase
+class ProjectsControllerTest < ActionDispatch::IntegrationTest
 end
