@@ -1,3 +1,5 @@
+require 'net/smtp'
+
 class AttachmentEmail
   SMTP_ERRORS = [
     IOError, Net::SMTPAuthenticationError, Net::SMTPServerBusy,
