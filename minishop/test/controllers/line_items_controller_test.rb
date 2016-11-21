@@ -9,7 +9,7 @@ describe LineItemsController do
 
       it "saves the record and redirects to the detail page" do
         assert_difference "LineItem.count" do
-          post :create, params: { line_item: options }
+          post line_items_url, params: { line_item: options }
         end
 
         must_redirect_to root_path

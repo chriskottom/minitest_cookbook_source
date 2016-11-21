@@ -1,6 +1,8 @@
 require 'test_helper'
 
 describe ProductsController do
+  include SessionHelpers
+
   before do
     login_as(users(:lumbergh))
   end
@@ -9,28 +11,28 @@ describe ProductsController do
 
   describe "GET index" do
     it "responds with :success" do
-      get :index
+      get products_url
       must_respond_with :success
     end
   end
 
   describe "GET show" do
     it "responds with :success" do
-      get :show, params: { id: product.id }
+      get product_url(id: product.id)
       must_respond_with :success
     end
   end
 
   describe "GET new" do
     it "responds with :success" do
-      get :new
+      get new_product_url
       must_respond_with :success
     end
   end
 
   describe "GET edit" do
     it "responds with :success" do
-      get :edit, params: { id: product.id }
+      get edit_product_url(id: product.id)
       must_respond_with :success
     end
   end
@@ -42,7 +44,7 @@ describe ProductsController do
 
       it "saves the record and redirects to the detail page" do
         assert_difference "Product.count" do
-          post :create, params: { product: options }
+          post products_url, params: { product: options }
         end
 
         product = Product.find_by title: "Test"   # :title must be unique
@@ -56,7 +58,7 @@ describe ProductsController do
 
       it "does not save the record and re-displays the :new template" do
         expect(-> {
-                 post :create, params: { product: options }
+                 post products_url, params: { product: options }
                }).wont_change "Product.count"
         must_respond_with :success
       end
@@ -68,7 +70,7 @@ describe ProductsController do
       let(:options)  { {title: "RSpec and Friends"} }
 
       it "updates the record and redirects to the detail page" do
-        put :update, params: { id: product.id, product: options }
+        put product_url(id: product.id), params: { product: options }
 
         expect(product.reload.title).must_equal options[:title]
         must_redirect_to product
@@ -80,7 +82,7 @@ describe ProductsController do
       let(:options)  { {price: 0} }
 
       it "does not update the record and re-displays the :edit template" do
-        put :update, params: { id: product.id, product: options }
+        put product_url(id: product.id), params: { product: options }
         expect(product.reload.price).wont_equal 0
         must_respond_with :success
       end
@@ -94,7 +96,7 @@ describe ProductsController do
 
     it "destroys the record and redirects to the index" do
       assert_difference "Product.count", -1 do
-        delete :destroy, params: { id: product.id }
+        delete product_url(id: product.id)
       end
       must_redirect_to products_url
       expect(flash[:notice]).must_equal "Product was successfully destroyed."

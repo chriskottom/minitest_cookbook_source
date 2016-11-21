@@ -19,7 +19,6 @@ require "support/session_helpers"
 require "support/shopping_helpers"
 
 class ActiveSupport::TestCase
-  include SessionHelpers
   fixtures :all
 end
 

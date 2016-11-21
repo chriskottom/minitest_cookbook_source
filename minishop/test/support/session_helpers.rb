@@ -1,9 +1,9 @@
 module SessionHelpers
   def login_as(user)
-    session[:user_id] = user.id
+    post login_url, params: { name: user.name, password: "secret" }
   end
 
   def logout
-    session[:user_id] = nil
+    delete logout_url
   end
 end

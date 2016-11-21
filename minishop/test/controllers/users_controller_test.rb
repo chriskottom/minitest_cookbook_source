@@ -1,6 +1,8 @@
 require "test_helper"
 
 describe UsersController do
+  include SessionHelpers
+
   before do
     login_as(users(:lumbergh))
   end
@@ -9,28 +11,28 @@ describe UsersController do
 
   describe "GET index" do
     it "responds with :success" do
-      get :index
+      get users_url
       must_respond_with :success
     end
   end
 
   describe "GET show" do
     it "responds with :success" do
-      get :show, params: { id: user.id }
+      get user_url(id: user.id)
       must_respond_with :success
     end
   end
 
   describe "GET new" do
     it "responds with :success" do
-      get :new
+      get new_user_url
       must_respond_with :success
     end
   end
 
   describe "GET edit" do
     it "responds with :success" do
-      get :edit, params: { id: user.id }
+      get edit_user_url(id: user.id)
       must_respond_with :success
     end
   end
@@ -42,7 +44,7 @@ describe UsersController do
 
       it "saves the record and redirects to the detail page" do
         assert_difference "User.count" do
-          post :create, params: { user: options }
+          post users_url, params: { user: options }
         end
 
         user = User.find_by name: "pgibbons"    # :name must be unique
@@ -56,7 +58,7 @@ describe UsersController do
 
       it "does not save the record and re-displays the :new template" do
         assert_no_difference "User.count" do
-          post :create, params: { user: options }
+          post users_url, params: { user: options }
         end
         must_respond_with :success
       end
@@ -68,7 +70,7 @@ describe UsersController do
       let(:options)  { {name: "pgibbons"} }
 
       it "updates the record and redirects to the detail page" do
-        put :update, params: { id: user.id, user: options }
+        put user_url(id: user.id), params: { user: options }
 
         user = User.order(updated_at: :desc).first
         must_redirect_to user
@@ -80,7 +82,7 @@ describe UsersController do
       let(:options)  { {name: "lumbergh"} }
 
       it "does not update the record and re-displays the :edit template" do
-        put :update, params: { id: user.id, user: options }
+        put user_url(id: user.id), params: { user: options }
         must_respond_with :success
       end
     end
@@ -89,7 +91,7 @@ describe UsersController do
   describe "DELETE destroy" do
     it "destroys the record and redirects to the index" do
       assert_difference "User.count", -1 do
-        delete :destroy, params: { id: user.id }
+        delete user_url(id: user.id)
       end
       must_redirect_to users_path
       expect(flash[:notice]).must_equal "User #{ user.name } was successfully destroyed."

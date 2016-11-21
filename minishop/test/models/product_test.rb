@@ -34,6 +34,7 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "can delete record if not associated with LineItems" do
+    @product.line_items.clear
     assert_empty @product.line_items
     assert_difference "Product.count", -1 do
       @product.destroy
