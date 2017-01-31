@@ -1,0 +1,11 @@
+require "rake/testtask"
+
+namespace :test do
+  Rake::TestTask.new(:all) do |t|
+    t.libs = %w(lib test)
+    t.pattern = "**/test/**/*_test.rb"
+  end
+end
+
+task test: ["test:all"]
+task default: "test"

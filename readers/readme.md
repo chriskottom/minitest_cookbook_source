@@ -1,8 +1,3 @@
-# The Minitest Cookbook - Code Samples
-
-This repository includes sample source code used for The Minitest Cookbook and additional fun and surprises.
-
-
 ## Coding Along? 
 
 Fork this repo and add your notes to the [readers](/readers) directory under your github username. Then, create a PR when you have a question, or have completed a chapter.
